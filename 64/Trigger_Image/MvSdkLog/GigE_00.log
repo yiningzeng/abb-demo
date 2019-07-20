@@ -1,0 +1,75 @@
+[2019-07-20 17:14:47] | GigEVisionManager.cpp-L0282: socket mode start!
+[2019-07-20 17:14:47] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:14:47] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:14:47] | GigEVisionManager.cpp-L0824: connecting device ... hostIP[c0a81f9d], hostPort[40166], devIP[a9fe05ad]
+[2019-07-20 17:14:47] | GigEVisionManager.cpp-L0578: m_nUpNetExport[c0a81f9d], m_nUpDevIP[a9fe05ad]
+[2019-07-20 17:14:47] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:14:47] | GigEVisionManager.cpp-L2755: event thread start...
+[2019-07-20 17:14:48] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:14:48] | GigEVisionManager.cpp-L1158: GetCurCompressMode Execute Fails Node is not readable. : AccessException thrown in node 'ImageCompressionMode' while calling 'ImageCompressionMode.GetIntValue()' (file 'EnumerationT.h', line 131)
+[2019-07-20 17:14:48] |   GigEVisionGVSP.cpp-L0271: GVSP GVSPThread Start, ThreadId[524105472]
+[2019-07-20 17:16:59] | GigEVisionManager.cpp-L0282: socket mode start!
+[2019-07-20 17:16:59] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:16:59] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:16:59] | GigEVisionManager.cpp-L0824: connecting device ... hostIP[c0a81f9d], hostPort[47809], devIP[a9fe05ad]
+[2019-07-20 17:16:59] | GigEVisionManager.cpp-L0578: m_nUpNetExport[c0a81f9d], m_nUpDevIP[a9fe05ad]
+[2019-07-20 17:16:59] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:16:59] | GigEVisionManager.cpp-L2755: event thread start...
+[2019-07-20 17:16:59] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:16:59] | GigEVisionManager.cpp-L1158: GetCurCompressMode Execute Fails Node is not readable. : AccessException thrown in node 'ImageCompressionMode' while calling 'ImageCompressionMode.GetIntValue()' (file 'EnumerationT.h', line 131)
+[2019-07-20 17:16:59] |   GigEVisionGVSP.cpp-L0271: GVSP GVSPThread Start, ThreadId[-1066539264]
+[2019-07-20 17:17:03] | GigEVisionManager.cpp-L4486: Lost Frame From Net[30], Total Frame Count[31], NetCount[1], CurBlock[31], LastBlock[0]
+[2019-07-20 17:17:16] |   GigEVisionGVSP.cpp-L0380: gvsp recv thread stop
+[2019-07-20 17:17:16] | GigEVisionManager.cpp-L2289: AppGetCount[18], AppGetCountSucceed[3], ExpectRecv[33], NetRecv[3], ThrowAbnormalImage[0], NetLostFrame[30], ThrowInBufList[0], LostPackets[0]
+[2019-07-20 17:17:16] | GigEVisionManager.cpp-L2289: AppGetCount[18], AppGetCountSucceed[3], ExpectRecv[33], NetRecv[3], ThrowAbnormalImage[0], NetLostFrame[30], ThrowInBufList[0], LostPackets[0]
+[2019-07-20 17:17:16] | GigEVisionManager.cpp-L0904: disconnect device ...
+[2019-07-20 17:17:16] | GigEVisionManager.cpp-L2826: event thread stop
+[2019-07-20 17:17:16] | GigEVisionManager.cpp-L2289: AppGetCount[18], AppGetCountSucceed[3], ExpectRecv[33], NetRecv[3], ThrowAbnormalImage[0], NetLostFrame[30], ThrowInBufList[0], LostPackets[0]
+[2019-07-20 17:17:36] | GigEVisionManager.cpp-L0282: socket mode start!
+[2019-07-20 17:17:36] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:17:36] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:17:36] | GigEVisionManager.cpp-L0824: connecting device ... hostIP[c0a81f9d], hostPort[47881], devIP[a9fe05ad]
+[2019-07-20 17:17:36] | GigEVisionManager.cpp-L0578: m_nUpNetExport[c0a81f9d], m_nUpDevIP[a9fe05ad]
+[2019-07-20 17:17:36] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:17:36] | GigEVisionManager.cpp-L2755: event thread start...
+[2019-07-20 17:17:36] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:17:36] | GigEVisionManager.cpp-L1158: GetCurCompressMode Execute Fails Node is not readable. : AccessException thrown in node 'ImageCompressionMode' while calling 'ImageCompressionMode.GetIntValue()' (file 'EnumerationT.h', line 131)
+[2019-07-20 17:17:36] |   GigEVisionGVSP.cpp-L0271: GVSP GVSPThread Start, ThreadId[-1434622208]
+[2019-07-20 17:40:43] | GigEVisionManager.cpp-L0282: socket mode start!
+[2019-07-20 17:40:43] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:40:43] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:40:43] | GigEVisionManager.cpp-L0824: connecting device ... hostIP[c0a81f9d], hostPort[51965], devIP[c0a81f9b]
+[2019-07-20 17:40:43] | GigEVisionManager.cpp-L0578: m_nUpNetExport[c0a81f9d], m_nUpDevIP[c0a81f9b]
+[2019-07-20 17:40:43] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:40:43] | GigEVisionManager.cpp-L2755: event thread start...
+[2019-07-20 17:40:43] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:40:43] | GigEVisionManager.cpp-L1158: GetCurCompressMode Execute Fails Node is not readable. : AccessException thrown in node 'ImageCompressionMode' while calling 'ImageCompressionMode.GetIntValue()' (file 'EnumerationT.h', line 131)
+[2019-07-20 17:40:43] |   GigEVisionGVSP.cpp-L0271: GVSP GVSPThread Start, ThreadId[1204807424]
+[2019-07-20 17:56:18] | GigEVisionManager.cpp-L0282: socket mode start!
+[2019-07-20 17:56:18] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:56:18] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:56:18] | GigEVisionManager.cpp-L0824: connecting device ... hostIP[c0a81f9d], hostPort[36782], devIP[c0a81f9b]
+[2019-07-20 17:56:18] | GigEVisionManager.cpp-L0888: GVCP_GetAccessPrivilege [1][80000203]
+[2019-07-20 17:56:18] | GigEVisionManager.cpp-L0743: connect device failed! [80000203]
+[2019-07-20 17:56:18] | GigEVisionManager.cpp-L0904: disconnect device ...
+[2019-07-20 17:56:18] | GigEVisionManager.cpp-L1864: SetAcquisitionStop Execute Fails Feature not present (reference not valid) : AccessException thrown (file 'NodeMapRef.h', line 415)
+[2019-07-20 17:56:18] | GigEVisionManager.cpp-L2289: AppGetCount[0], AppGetCountSucceed[0], ExpectRecv[0], NetRecv[0], ThrowAbnormalImage[0], NetLostFrame[0], ThrowInBufList[0], LostPackets[0]
+[2019-07-20 17:56:45] | GigEVisionManager.cpp-L0282: socket mode start!
+[2019-07-20 17:56:45] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:56:45] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:56:45] | GigEVisionManager.cpp-L0824: connecting device ... hostIP[c0a81f9d], hostPort[38261], devIP[c0a81f9b]
+[2019-07-20 17:56:45] | GigEVisionManager.cpp-L0888: GVCP_GetAccessPrivilege [1][80000203]
+[2019-07-20 17:56:45] | GigEVisionManager.cpp-L0743: connect device failed! [80000203]
+[2019-07-20 17:56:45] | GigEVisionManager.cpp-L0904: disconnect device ...
+[2019-07-20 17:56:45] | GigEVisionManager.cpp-L1864: SetAcquisitionStop Execute Fails Feature not present (reference not valid) : AccessException thrown (file 'NodeMapRef.h', line 415)
+[2019-07-20 17:56:45] | GigEVisionManager.cpp-L2289: AppGetCount[0], AppGetCountSucceed[0], ExpectRecv[0], NetRecv[0], ThrowAbnormalImage[0], NetLostFrame[0], ThrowInBufList[0], LostPackets[0]
+[2019-07-20 17:57:17] | GigEVisionManager.cpp-L0282: socket mode start!
+[2019-07-20 17:57:17] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:57:17] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:57:17] | GigEVisionManager.cpp-L0824: connecting device ... hostIP[c0a81f9d], hostPort[47564], devIP[c0a81f9b]
+[2019-07-20 17:57:17] | GigEVisionManager.cpp-L0578: m_nUpNetExport[c0a81f9d], m_nUpDevIP[c0a81f9b]
+[2019-07-20 17:57:17] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:57:17] | GigEVisionManager.cpp-L2755: event thread start...
+[2019-07-20 17:57:17] |           NetUDP.cpp-L0520: ReCreateSocket NewIp[0], SrcIP[c0a81f9d]
+[2019-07-20 17:57:17] | GigEVisionManager.cpp-L1158: GetCurCompressMode Execute Fails Node is not readable. : AccessException thrown in node 'ImageCompressionMode' while calling 'ImageCompressionMode.GetIntValue()' (file 'EnumerationT.h', line 131)
+[2019-07-20 17:57:17] |   GigEVisionGVSP.cpp-L0271: GVSP GVSPThread Start, ThreadId[-1500903680]

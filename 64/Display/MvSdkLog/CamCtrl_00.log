@@ -1,0 +1,64 @@
+[2019-07-20 17:14:47] | CInterfaceManager.cpp-L4664: CamCtrl[2020009], GigE SDKVersion(1040009), DriverVersion(1040001)
+[2019-07-20 17:14:48] | CInterfaceManager.cpp-L1066: remalloc RecvBuf succeed, [19963904]
+[2019-07-20 17:14:48] | CInterfaceManager.cpp-L4335: Camctrl RecvThread Start, ThreadId[515712768]
+[2019-07-20 17:14:48] | CInterfaceManager.cpp-L4149: Camctrl DisplayThread Start, ThreadId[507320064]
+[2019-07-20 17:16:59] | CInterfaceManager.cpp-L4664: CamCtrl[2020009], GigE SDKVersion(1040009), DriverVersion(1040001)
+[2019-07-20 17:16:59] | CInterfaceManager.cpp-L1066: remalloc RecvBuf succeed, [19963904]
+[2019-07-20 17:16:59] | CInterfaceManager.cpp-L4335: Camctrl RecvThread Start, ThreadId[-1074931968]
+[2019-07-20 17:16:59] | CInterfaceManager.cpp-L4149: Camctrl DisplayThread Start, ThreadId[-1083324672]
+[2019-07-20 17:17:16] | CInterfaceManager.cpp-L1208: getfcnt [18], getfcntsucceed[0], totalRecv[0] 
+[2019-07-20 17:17:16] | CInterfaceManager.cpp-L4475: RecvThreadProcess exit
+[2019-07-20 17:17:16] | CInterfaceManager.cpp-L4323: DisplayProcess exit
+[2019-07-20 17:17:36] | CInterfaceManager.cpp-L4664: CamCtrl[2020009], GigE SDKVersion(1040009), DriverVersion(1040001)
+[2019-07-20 17:17:36] | CInterfaceManager.cpp-L1066: remalloc RecvBuf succeed, [19963904]
+[2019-07-20 17:17:36] | CInterfaceManager.cpp-L4335: Camctrl RecvThread Start, ThreadId[-1443014912]
+[2019-07-20 17:17:36] | CInterfaceManager.cpp-L4149: Camctrl DisplayThread Start, ThreadId[-1451407616]
+[2019-07-20 17:20:47] | CInterfaceManager.cpp-L4664: CamCtrl[2020009], GigE SDKVersion(1040009), DriverVersion(1040001)
+[2019-07-20 17:20:47] | CInterfaceManager.cpp-L1066: remalloc RecvBuf succeed, [19963904]
+[2019-07-20 17:20:48] | CInterfaceManager.cpp-L4335: Camctrl RecvThread Start, ThreadId[1609422592]
+[2019-07-20 17:20:48] | CInterfaceManager.cpp-L4149: Camctrl DisplayThread Start, ThreadId[1601029888]
+[2019-07-20 17:21:19] | CInterfaceManager.cpp-L1208: getfcnt [0], getfcntsucceed[0], totalRecv[0] 
+[2019-07-20 17:21:19] | CInterfaceManager.cpp-L4475: RecvThreadProcess exit
+[2019-07-20 17:21:19] | CInterfaceManager.cpp-L4323: DisplayProcess exit
+[2019-07-20 17:23:43] | CInterfaceManager.cpp-L4664: CamCtrl[2020009], GigE SDKVersion(1040009), DriverVersion(1040001)
+[2019-07-20 17:23:43] | CInterfaceManager.cpp-L1066: remalloc RecvBuf succeed, [252048]
+[2019-07-20 17:23:43] | CInterfaceManager.cpp-L4335: Camctrl RecvThread Start, ThreadId[835151616]
+[2019-07-20 17:23:43] | CInterfaceManager.cpp-L4149: Camctrl DisplayThread Start, ThreadId[826758912]
+[2019-07-20 17:23:44] |         MvRender.cpp-L0184: RenderMode D3D
+[2019-07-20 17:24:19] | CInterfaceManager.cpp-L1208: getfcnt [0], getfcntsucceed[0], totalRecv[0] 
+[2019-07-20 17:24:19] | CInterfaceManager.cpp-L4323: DisplayProcess exit
+[2019-07-20 17:24:19] | CInterfaceManager.cpp-L4475: RecvThreadProcess exit
+[2019-07-20 17:48:15] | CInterfaceManager.cpp-L4664: CamCtrl[2020009], GigE SDKVersion(1040009), DriverVersion(1040001)
+[2019-07-20 17:48:16] | CInterfaceManager.cpp-L1066: remalloc RecvBuf succeed, [252048]
+[2019-07-20 17:48:16] | CInterfaceManager.cpp-L4335: Camctrl RecvThread Start, ThreadId[1036195584]
+[2019-07-20 17:48:16] | CInterfaceManager.cpp-L4149: Camctrl DisplayThread Start, ThreadId[1027802880]
+[2019-07-20 17:48:38] | CInterfaceManager.cpp-L1208: getfcnt [0], getfcntsucceed[0], totalRecv[0] 
+[2019-07-20 17:48:38] | CInterfaceManager.cpp-L4475: RecvThreadProcess exit
+[2019-07-20 17:48:38] | CInterfaceManager.cpp-L4323: DisplayProcess exit
+[2019-07-20 17:51:49] | CInterfaceManager.cpp-L4664: CamCtrl[2020009], GigE SDKVersion(1040009), DriverVersion(1040001)
+[2019-07-20 17:51:50] | CInterfaceManager.cpp-L1066: remalloc RecvBuf succeed, [252048]
+[2019-07-20 17:51:50] | CInterfaceManager.cpp-L4335: Camctrl RecvThread Start, ThreadId[2049398528]
+[2019-07-20 17:51:50] | CInterfaceManager.cpp-L4149: Camctrl DisplayThread Start, ThreadId[2041005824]
+[2019-07-20 17:52:50] | CInterfaceManager.cpp-L4664: CamCtrl[2020009], GigE SDKVersion(1040009), DriverVersion(1040001)
+[2019-07-20 17:52:56] | CInterfaceManager.cpp-L4664: CamCtrl[2020009], GigE SDKVersion(1040009), DriverVersion(1040001)
+[2019-07-20 17:52:59] | CInterfaceManager.cpp-L4664: CamCtrl[2020009], GigE SDKVersion(1040009), DriverVersion(1040001)
+[2019-07-20 17:54:10] | CInterfaceManager.cpp-L4664: CamCtrl[2020009], GigE SDKVersion(1040009), DriverVersion(1040001)
+[2019-07-20 17:54:10] | CInterfaceManager.cpp-L1066: remalloc RecvBuf succeed, [252048]
+[2019-07-20 17:54:10] | CInterfaceManager.cpp-L4335: Camctrl RecvThread Start, ThreadId[-699418880]
+[2019-07-20 17:54:10] | CInterfaceManager.cpp-L4149: Camctrl DisplayThread Start, ThreadId[-707811584]
+[2019-07-20 17:54:23] | CInterfaceManager.cpp-L1208: getfcnt [0], getfcntsucceed[0], totalRecv[0] 
+[2019-07-20 17:54:23] | CInterfaceManager.cpp-L4475: RecvThreadProcess exit
+[2019-07-20 17:54:23] | CInterfaceManager.cpp-L4323: DisplayProcess exit
+[2019-07-20 18:03:44] | CInterfaceManager.cpp-L4664: CamCtrl[2020009], GigE SDKVersion(1040009), DriverVersion(1040001)
+[2019-07-20 18:03:44] | CInterfaceManager.cpp-L1066: remalloc RecvBuf succeed, [252048]
+[2019-07-20 18:03:45] | CInterfaceManager.cpp-L4335: Camctrl RecvThread Start, ThreadId[1330632448]
+[2019-07-20 18:03:45] | CInterfaceManager.cpp-L4149: Camctrl DisplayThread Start, ThreadId[1322239744]
+[2019-07-20 18:03:45] |         MvRender.cpp-L0184: RenderMode D3D
+[2019-07-20 18:04:46] | CInterfaceManager.cpp-L1208: getfcnt [0], getfcntsucceed[0], totalRecv[0] 
+[2019-07-20 18:04:46] | CInterfaceManager.cpp-L4475: RecvThreadProcess exit
+[2019-07-20 18:04:46] | CInterfaceManager.cpp-L4323: DisplayProcess exit
+[2019-07-20 18:06:20] | CInterfaceManager.cpp-L4664: CamCtrl[2020009], GigE SDKVersion(1040009), DriverVersion(1040001)
+[2019-07-20 18:06:21] | CInterfaceManager.cpp-L1066: remalloc RecvBuf succeed, [252048]
+[2019-07-20 18:06:21] | CInterfaceManager.cpp-L4149: Camctrl DisplayThread Start, ThreadId[298821376]
+[2019-07-20 18:06:21] | CInterfaceManager.cpp-L4335: Camctrl RecvThread Start, ThreadId[307214080]
+[2019-07-20 18:06:21] |         MvRender.cpp-L0184: RenderMode D3D
