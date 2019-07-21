@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include <opencv2/opencv.hpp>
 #include "MvCameraControl.h"
 
 #define MAX_IMAGE_DATA_SIZE   (40*1024*1024)
@@ -215,7 +216,16 @@ int main()
 					break;
 				}
 
-				FILE* fp = fopen("image.bmp", "wb");
+                vector<uchar> data;
+                for(int i=0;i<stSaveParam.nBufferSize;i++)
+                    data[i] = pDataForSaveImage[i];
+
+                cv::Mat img_decode;
+                img_decode = cv::imdecode(data, CV_LOAD_IMAGE_COLOR);
+                cv::imshow("camera",img_decode);
+                waitKey(1);
+
+                FILE* fp = fopen("image.bmp", "wb");
 				if (NULL == fp)
 				{
 					printf("fopen failed\n");
