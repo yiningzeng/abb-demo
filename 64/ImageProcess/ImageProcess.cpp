@@ -1,10 +1,14 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <pthread.h>
-#include <opencv2/opencv.hpp>
+#include "opencv2/opencv.hpp"
 #include "MvCameraControl.h"
+#include "processor.h"
+
+using namespace std;
 
 #define MAX_IMAGE_DATA_SIZE   (40*1024*1024)
 
@@ -43,6 +47,7 @@ bool PrintDeviceInfo(MV_CC_DEVICE_INFO* pstMVDevInfo)
     return true;
 }
 
+
 int main()
 {
     int nRet = MV_OK;
@@ -80,7 +85,7 @@ int main()
         return -1;
     }
 
-    scanf("%d", &nIndex);
+
 
     // 选择设备并创建句柄
 	// select device and create handle
@@ -122,124 +127,99 @@ int main()
     unsigned int nDataSize = MAX_IMAGE_DATA_SIZE;
 	unsigned char *pDataForRGB = NULL;
 	unsigned char *pDataForSaveImage = NULL;
-	
-	nRet = MV_CC_GetOneFrameTimeout(handle, pData, nDataSize, &stImageInfo, 1000);
-	if (nRet == MV_OK)
-	{
-		printf("Now you GetOneFrame, Width[%d], Height[%d], nFrameNum[%d]\n\n", 
-			stImageInfo.nWidth, stImageInfo.nHeight, stImageInfo.nFrameNum);
 
-	
-		// 处理图像
-		// image processing
-		printf("input 0 to do nothing, 1 to convert RGB, 2 to save as BMP\n");
-		int nInput = 0;
-		scanf("%d", &nInput);
-		switch (nInput)
-		{
-			// 不做任何事，继续往下走
-			// do nothing, and go on next
-			case 0: 
-			{
-				break;
-			}
-			// 转换图像为RGB格式，用户可根据自身需求转换其他格式
-			// convert image format to RGB, user can convert to other format by their requirement
-			case 1: 
-			{
-				pDataForRGB = (unsigned char*)malloc(stImageInfo.nWidth * stImageInfo.nHeight * 4 + 2048);
-				if (NULL == pDataForRGB)
-				{
-					break;
-				}
-				// 像素格式转换
-				// convert pixel format 
-				MV_CC_PIXEL_CONVERT_PARAM stConvertParam = {0};
-				// 从上到下依次是：图像宽，图像高，输入数据缓存，输入数据大小，源像素格式，
-				// 目标像素格式，输出数据缓存，提供的输出缓冲区大小
-				// Top to bottom are：image width, image height, input data buffer, input data size, source pixel format, 
-				// destination pixel format, output data buffer, provided output buffer size
-				stConvertParam.nWidth = stImageInfo.nWidth;
-				stConvertParam.nHeight = stImageInfo.nHeight;
-				stConvertParam.pSrcData = pData;
-				stConvertParam.nSrcDataLen = stImageInfo.nFrameLen;
-				stConvertParam.enSrcPixelType = stImageInfo.enPixelType;
-				stConvertParam.enDstPixelType = PixelType_Gvsp_RGB8_Packed;
-				stConvertParam.pDstBuffer = pDataForRGB;
-				stConvertParam.nDstBufferSize = stImageInfo.nWidth * stImageInfo.nHeight *  4 + 2048;
-				nRet = MV_CC_ConvertPixelType(handle, &stConvertParam);
-			    if (MV_OK != nRet)
-				{
-					printf("MV_CC_ConvertPixelType fail! nRet [%x]\n", nRet);
-					return -1;
-				}
+	int i = 1;
+	while (1){
+        nRet = MV_CC_GetOneFrameTimeout(handle, pData, nDataSize, &stImageInfo, 1000);
+        if (nRet == MV_OK)
+        {
+            printf("Now you GetOneFrame, Width[%d], Height[%d], nFrameNum[%d]\n\n",
+                   stImageInfo.nWidth, stImageInfo.nHeight, stImageInfo.nFrameNum);
 
-				FILE* fp = fopen("AfterConvert_RGB.raw", "wb");
-				if (NULL == fp)
-				{
-					printf("fopen failed\n");
-					break;
-				}
-				fwrite(pDataForRGB, 1, stConvertParam.nDstLen, fp);
-				fclose(fp);
-				printf("convert succeed\n");
-				break;
-			}
-			case 2:
-			{
-				pDataForSaveImage = (unsigned char*)malloc(stImageInfo.nWidth * stImageInfo.nHeight * 4 + 2048);
-				if (NULL == pDataForSaveImage)
-				{
-					break;
-				}
-				// 填充存图参数
-				// fill in the parameters of save image
-				MV_SAVE_IMAGE_PARAM_EX stSaveParam;
-				memset(&stSaveParam, 0, sizeof(MV_SAVE_IMAGE_PARAM_EX));
-				// 从上到下依次是：输出图片格式，输入数据的像素格式，提供的输出缓冲区大小，图像宽，
-				// 图像高，输入数据缓存，输出图片缓存，JPG编码质量
-				// Top to bottom are：
-				stSaveParam.enImageType = MV_Image_Bmp; 
-				stSaveParam.enPixelType = stImageInfo.enPixelType; 
-				stSaveParam.nBufferSize = stImageInfo.nWidth * stImageInfo.nHeight * 4 + 2048;
-				stSaveParam.nWidth      = stImageInfo.nWidth; 
-				stSaveParam.nHeight     = stImageInfo.nHeight; 
-				stSaveParam.pData       = pData;
-				stSaveParam.nDataLen    = stImageInfo.nFrameLen;
-				stSaveParam.pImageBuffer = pDataForSaveImage;
-				stSaveParam.nJpgQuality = 80;
-				 
-				nRet = MV_CC_SaveImageEx(&stSaveParam);
-				if(MV_OK != nRet)
-				{
-					printf("failed in MV_CC_SaveImage,nRet[%x]\n", nRet);
-					break;
-				}
 
-                vector<uchar> data;
-                for(int i=0;i<stSaveParam.nBufferSize;i++)
-                    data[i] = pDataForSaveImage[i];
+            // 处理图像
+            // image processing
+            printf("input 0 to do nothing, 1 to convert RGB, 2 to save as BMP\n");
 
-                cv::Mat img_decode;
-                img_decode = cv::imdecode(data, CV_LOAD_IMAGE_COLOR);
-                cv::imshow("camera",img_decode);
-                waitKey(1);
+            pDataForSaveImage = (unsigned char*)malloc(stImageInfo.nWidth * stImageInfo.nHeight * 4 + 2048);
+            if (NULL == pDataForSaveImage)
+            {
+                break;
+            }
+            // 填充存图参数
+            // fill in the parameters of save image
+            MV_SAVE_IMAGE_PARAM_EX stSaveParam;
+            memset(&stSaveParam, 0, sizeof(MV_SAVE_IMAGE_PARAM_EX));
+            // 从上到下依次是：输出图片格式，输入数据的像素格式，提供的输出缓冲区大小，图像宽，
+            // 图像高，输入数据缓存，输出图片缓存，JPG编码质量
+            // Top to bottom are：
+            stSaveParam.enImageType = MV_Image_Bmp;
+            stSaveParam.enPixelType = stImageInfo.enPixelType;
+            stSaveParam.nBufferSize = stImageInfo.nWidth * stImageInfo.nHeight * 4 + 2048;
+            stSaveParam.nWidth      = stImageInfo.nWidth;
+            stSaveParam.nHeight     = stImageInfo.nHeight;
+            stSaveParam.pData       = pData;
+            stSaveParam.nDataLen    = stImageInfo.nFrameLen;
+            stSaveParam.pImageBuffer = pDataForSaveImage;
+            stSaveParam.nJpgQuality = 80;
 
-                FILE* fp = fopen("image.bmp", "wb");
-				if (NULL == fp)
-				{
-					printf("fopen failed\n");
-					break;
-				}
-				fwrite(pDataForSaveImage, 1, stSaveParam.nImageLen, fp);
-				fclose(fp);
-				printf("save image succeed\n");
-				break;
-			}
-			default:
-				break;
-		}
+            nRet = MV_CC_SaveImageEx(&stSaveParam);
+            if(MV_OK != nRet)
+            {
+                printf("failed in MV_CC_SaveImage,nRet[%x]\n", nRet);
+                break;
+            }
+            stringstream ss;
+            ss<<i;
+            if (i<33){
+
+                cv::Mat imgShow=cv::imread("screen/" + ss.str() +".png");
+
+                if (imgShow.empty()) {
+                    cout << "Error" << endl;
+                    return -1;
+                }
+                cv::imshow("camera", imgShow);
+                cv::resizeWindow("camera", 1600, 1200);
+//    setWindowProperty("camera", CV_WND_PROP_FULLSCREEN, CV_WINDOW_FULLSCREEN);
+                cv::moveWindow("camera", 1921, -25);
+                printf("show screen\n");
+                string name ="camera/image" + ss.str() + ".bmp";
+
+                FILE* fp = fopen(name.c_str(), "wb");
+                if (NULL == fp)
+                {
+                    printf("fopen failed\n");
+                    break;
+                }
+                fwrite(pDataForSaveImage, 1, stSaveParam.nImageLen, fp);
+                fclose(fp);
+                printf("save image succeed\n");
+                cv::Mat img=cv::imread(name);
+                send_input(img);
+                printf("send image\n");
+                cv::waitKey(100);
+
+            } else if(i == 35){
+                cv::Mat img = get_output();
+//                cv::imshow("camera",img);
+//                cv::waitKey(0);
+                stringstream ss;
+                ss<<stImageInfo.nFrameNum;
+                cv::imwrite("result/" + ss.str() + ".bmp", img);
+                i=1;
+            }
+            i++;
+            printf("i: %x\n", i);
+//            cv::Mat img_decode;
+//            img_decode = cv::imdecode(data, 1);
+//            cv::imshow("camera",img_decode);
+//            cv::waitKey(3000);
+
+
+        }
 	}
+
 	
 	// 停止取流
 	// end grab image
@@ -249,7 +229,7 @@ int main()
         printf("MV_CC_StopGrabbing fail! nRet [%x]\n", nRet);
         return -1;
     }
-	
+
     // 销毁句柄
 	// destroy handle
     nRet = MV_CC_DestroyHandle(handle);
@@ -258,10 +238,10 @@ int main()
         printf("MV_CC_DestroyHandle fail! nRet [%x]\n", nRet);
         return -1;
     }
-	
+
 	if (pData)
 	{
-		free(pData);	
+		free(pData);
 		pData = NULL;
 	}
 	if (pDataForRGB)
