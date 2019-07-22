@@ -3,8 +3,8 @@
 ![示例1](img/1.png)
 ![示例2](img/2.png)
 ![示例3](img/3.png)
-![示例视频](videoplayback.mp4)
-![pdf](dat--reflectCONTROL-PSS-8005-D--en.pdf)
+[示例视频](videoplayback.mp4)
+[pdf](dat--reflectCONTROL-PSS-8005-D--en.pdf)
 ## 使用说明
 主要在[目录ImageProcess](64/ImageProcess)
 ```
