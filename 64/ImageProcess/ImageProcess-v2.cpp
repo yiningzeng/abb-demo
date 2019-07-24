@@ -12,11 +12,12 @@ using namespace std;
 
 #define MAX_IMAGE_DATA_SIZE   (40*1024*1024)
 
+// 等待用户输入enter键来结束取流或结束程序
 // wait for user to input enter to stop grabbing or end the sample program
 void PressEnterToExit(void)
 {
-    int c;
-    while ( (c = getchar()) != '\n' && c != EOF );
+	int c;
+	while ( (c = getchar()) != '\n' && c != EOF );
     fprintf( stderr, "\nPress enter to exit.\n");
     while( getchar() != '\n');
 }
@@ -30,7 +31,8 @@ bool PrintDeviceInfo(MV_CC_DEVICE_INFO* pstMVDevInfo)
     }
     if (pstMVDevInfo->nTLayerType == MV_GIGE_DEVICE)
     {
-        // print current ip and user defined name
+		// 打印当前相机ip和用户自定义名字
+		// print current ip and user defined name
         printf("%s %x\n" , "nCurrentIp:" , pstMVDevInfo->SpecialInfo.stGigEInfo.nCurrentIp);                   //当前IP
         printf("%s %s\n\n" , "chUserDefinedName:" , pstMVDevInfo->SpecialInfo.stGigEInfo.chUserDefinedName);     //用户定义名
     }
@@ -55,7 +57,8 @@ int main()
     MV_CC_DEVICE_INFO_LIST stDeviceList;
     memset(&stDeviceList, 0, sizeof(MV_CC_DEVICE_INFO_LIST));
 
-    // enum device
+    // 枚举设备
+	// enum device
     nRet = MV_CC_EnumDevices(MV_GIGE_DEVICE | MV_USB_DEVICE, &stDeviceList);
     if (MV_OK != nRet)
     {
@@ -72,10 +75,10 @@ int main()
             if (NULL == pDeviceInfo)
             {
                 break;
-            }
-            PrintDeviceInfo(pDeviceInfo);
-        }
-    }
+            } 
+            PrintDeviceInfo(pDeviceInfo);            
+        }  
+    } 
     else
     {
         printf("Find No Devices!\n");
@@ -84,15 +87,17 @@ int main()
 
 
 
-    // select device and create handle
+    // 选择设备并创建句柄
+	// select device and create handle
     nRet = MV_CC_CreateHandle(&handle, stDeviceList.pDeviceInfo[nIndex]);
     if (MV_OK != nRet)
     {
         printf("MV_CC_CreateHandle fail! nRet [%x]\n", nRet);
         return -1;
     }
-
-    // open device
+	
+    // 打开设备
+	// open device
     nRet = MV_CC_OpenDevice(handle);
     if (MV_OK != nRet)
     {
@@ -100,50 +105,51 @@ int main()
         return -1;
     }
 
-    nRet = MV_CC_SetEnumValue(handle, "TriggerMode", 0);
+	nRet = MV_CC_SetEnumValue(handle, "TriggerMode", 0);
     if (MV_OK != nRet)
     {
         printf("MV_CC_SetTriggerMode fail! nRet [%x]\n", nRet);
         return -1;
     }
-
-    // start grab image
+	
+    // 开始取流
+	// start grab image
     nRet = MV_CC_StartGrabbing(handle);
     if (MV_OK != nRet)
     {
         printf("MV_CC_StartGrabbing fail! nRet [%x]\n", nRet);
         return -1;
     }
-
-    MV_FRAME_OUT_INFO_EX stImageInfo = {0};
+	
+	MV_FRAME_OUT_INFO_EX stImageInfo = {0};
     memset(&stImageInfo, 0, sizeof(MV_FRAME_OUT_INFO_EX));
     unsigned char * pData = (unsigned char *)malloc(sizeof(unsigned char) * MAX_IMAGE_DATA_SIZE);
     unsigned int nDataSize = MAX_IMAGE_DATA_SIZE;
-    unsigned char *pDataForRGB = NULL;
-    unsigned char *pDataForSaveImage = NULL;
+	unsigned char *pDataForRGB = NULL;
+	unsigned char *pDataForSaveImage = NULL;
 
-    int a = 0;
-    while(a<5){
-        nRet = MV_CC_GetOneFrameTimeout(handle, pData, nDataSize, &stImageInfo, 1000);
-        if (nRet == MV_OK) {
-            printf("Discard Frame \n\n");
-        }
-        a++;
-    }
-    cv::Mat imgShow=cv::imread("screen/1.png");
-    if (imgShow.empty()) {
-        cout << "Error" << endl;
-        return -1;
-    }
-    cv::imshow("camera", imgShow);
-    cv::resizeWindow("camera", 1600, 1200);
-    cv::moveWindow("camera", 1367, -25);
-    printf("show screen one\n");
-    cv::waitKey(500);
-    sleep(1);
+	int a = 0;
+	while(a<5){
+		nRet = MV_CC_GetOneFrameTimeout(handle, pData, nDataSize, &stImageInfo, 1000);
+		if (nRet == MV_OK) {
+                    printf("Discard Frame \n\n");
+		}
+		a++;
+	}
+	cv::Mat imgShow=cv::imread("screen/1.png");
+	if (imgShow.empty()) {
+	    cout << "Error" << endl;
+	        return -1;
+	}
+	cv::imshow("camera", imgShow);
+	cv::resizeWindow("camera", 1600, 1200);
+	cv::moveWindow("camera", 1367, -25);
+	printf("show screen one\n");
+	cv::waitKey(500);
+	sleep(1);
 
-    int i = 1;
-    while (1) {
+	int i = 1;
+	while (1) {
         stringstream ss;
         ss << i;
         if (i < 9) {
@@ -166,6 +172,7 @@ int main()
                 printf("Now you GetOneFrame, Width[%d], Height[%d], nFrameNum[%d]\n\n",
                        stImageInfo.nWidth, stImageInfo.nHeight, stImageInfo.nFrameNum);
 
+                // 处理图像
                 // image processing
                 printf("input 0 to do nothing, 1 to convert RGB, 2 to save as BMP\n");
 
@@ -173,9 +180,12 @@ int main()
                 if (NULL == pDataForSaveImage) {
                     break;
                 }
+                // 填充存图参数
                 // fill in the parameters of save image
                 MV_SAVE_IMAGE_PARAM_EX stSaveParam;
                 memset(&stSaveParam, 0, sizeof(MV_SAVE_IMAGE_PARAM_EX));
+                // 从上到下依次是：输出图片格式，输入数据的像素格式，提供的输出缓冲区大小，图像宽，
+                // 图像高，输入数据缓存，输出图片缓存，JPG编码质量
                 // Top to bottom are：
                 stSaveParam.enImageType = MV_Image_Bmp;
                 stSaveParam.enPixelType = stImageInfo.enPixelType;
@@ -227,8 +237,9 @@ int main()
 //            cv::waitKey(3000);
     }
 
-
-    // end grab image
+	
+	// 停止取流
+	// end grab image
     nRet = MV_CC_StopGrabbing(handle);
     if (MV_OK != nRet)
     {
@@ -236,7 +247,8 @@ int main()
         return -1;
     }
 
-    // destroy handle
+    // 销毁句柄
+	// destroy handle
     nRet = MV_CC_DestroyHandle(handle);
     if (MV_OK != nRet)
     {
@@ -244,23 +256,23 @@ int main()
         return -1;
     }
 
-    if (pData)
-    {
-        free(pData);
-        pData = NULL;
-    }
-    if (pDataForRGB)
-    {
-        free(pDataForRGB);
-        pDataForRGB = NULL;
-    }
-    if (pDataForSaveImage)
-    {
-        free(pDataForSaveImage);
-        pDataForSaveImage = NULL;
-    }
+	if (pData)
+	{
+		free(pData);
+		pData = NULL;
+	}
+	if (pDataForRGB)
+	{
+		free(pDataForRGB);
+		pDataForRGB = NULL;
+	}
+	if (pDataForSaveImage)
+	{
+		free(pDataForSaveImage);
+		pDataForSaveImage = NULL;
+	}
 
-    PressEnterToExit();
-    printf("exit\n");
+	PressEnterToExit();
+	printf("exit\n");
     return 0;
 }
